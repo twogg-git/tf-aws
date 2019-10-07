@@ -4,7 +4,7 @@ variable "aws_keys" {
 
 variable "aws_region" {}
 
-variable "aws_az" {}
+variable "aws_region_az" {}
 
 data "aws_ami" "ubuntu" {
     most_recent = true
