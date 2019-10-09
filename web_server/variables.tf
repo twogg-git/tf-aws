@@ -1,12 +1,6 @@
 variable "aws_keys" { type = "map" }
 
-variable "aws_region_az" {}
-
-variable "aws_tls_port" { 
-    type = number
-    default = 443
-}
-
+# Get the latest version of Ubuntu 16.04 LTS
 data "aws_ami" "ubuntu" {
     most_recent = true
     filter {
@@ -18,4 +12,10 @@ data "aws_ami" "ubuntu" {
         values = ["hvm"]
     }
     owners = ["099720109477"] # Canonical
+}
+
+variable "server_port" {
+  description = "The port the server will use for HTTP requests"
+  type        = number
+  default     = 8080
 }
