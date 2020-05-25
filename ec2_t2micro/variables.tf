@@ -4,7 +4,7 @@ variable "region" {
   default = {
 		id  = "..."
 		az  = "..."
-	}
+ 	}
 }
 
 variable "instance_type" {
