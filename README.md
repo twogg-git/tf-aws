@@ -1,7 +1,7 @@
 # tf-aws
-Some examples of terraform provisioning in AWS
+Examples of provisioning in AWS with terraform 
 
-Dont forget to setup your aws-cli enviroment [AWS Documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+Dont forget to setup your aws-cli enviroment [aws docs](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
 ```sh
 $ aws configure
 AWS Access Key ID [None]: abc12345Key
