@@ -7,13 +7,13 @@ provider "aws" {
 }
 
 resource "aws_instance" "ec2" {
-  ami = data.aws_ami.amazon-linux-2.id
-  instance_type = var.instance_type
-  availability_zone = var.region.az
-  key_name = var.key_pair
-  vpc_security_group_ids = [aws_security_group.sg.id]
-  user_data = data.template_file.user_data.rendered
-  tags = var.tags
+  ami                     = data.aws_ami.amazon-linux-2.id
+  instance_type           = var.instance_type
+  availability_zone       = var.region.az
+  key_name                = var.key_pair
+  tags                    = var.tags
+  vpc_security_group_ids  = [aws_security_group.sg.id]
+  user_data               = data.template_file.user_data.rendered
 }
 
 resource "aws_security_group" "sg" {
@@ -52,18 +52,18 @@ resource "aws_security_group_rule" "rule_ssh_ingress" {
 }
 
 resource "aws_ebs_volume" "ebs" {
-  count = var.ebs.status ? 1 : 0
-  availability_zone = var.region.az
-  size = var.ebs.size
-  type = var.ebs.type
-  tags = var.tags
+  count               = var.ebs.status ? 1 : 0
+  availability_zone   = var.region.az
+  size                = var.ebs.size
+  type                = var.ebs.type
+  tags                = var.tags
 }
 
 resource "aws_volume_attachment" "ebs-attachment" {
-  count = var.ebs.status ? 1 : 0
-  device_name = "/dev/sdf"
-  volume_id = aws_ebs_volume.ebs[0].id
-  instance_id = aws_instance.ec2.id
+  count         = var.ebs.status ? 1 : 0
+  device_name   = "/dev/sdf"
+  volume_id     = aws_ebs_volume.ebs[0].id
+  instance_id   = aws_instance.ec2.id
 }
 
 data "template_file" "user_data" {
