@@ -1,11 +1,22 @@
-variable "account" { 
-	description =	"Region to use when creating the resources"
+variable "region" { 
+	description =	"Region and AZ to use when creating the resources"
 	type = map
+	default = {
+		id  = "..."
+		az  = "..."
+	}
 }
 
-variable "instance" {
-	description = "EC2 instance info"
-	type = map
+variable "instance_type" {
+	description = "EC2 type"
+	type = string
+	default = "t2.micro"
+}
+
+variable "key_pair" {
+	description = "EC2 key pair name"
+	type = string
+	default = ""
 }
 
 variable "tags" {
@@ -16,6 +27,18 @@ variable "tags" {
 variable "inbound_ports" {
   description = "List of inbound ports to open"
 	type = list
+}
+
+variable "cidr_block_all" {
+	description = "All cidr block"
+	type = string
+	default = "0.0.0.0/0"
+}
+
+variable "cidr_block" {
+	description = "VPC specifi cidr block"
+	type = list
+	default = ["0.0.0.0/0"]
 }
 
 variable "ebs" {
