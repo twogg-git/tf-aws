@@ -9,10 +9,4 @@ tags = {
   "Env"   :"development"
 }
 
-ebs = {
-  status  = true
-	size    = 10
-	type    = "gp2"	
-}
-
 inbound_ports = [80]

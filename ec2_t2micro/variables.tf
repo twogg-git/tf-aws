@@ -35,12 +35,6 @@ variable "cidr_block_all" {
 	default = "0.0.0.0/0"
 }
 
-variable "cidr_block" {
-	description = "VPC specifi cidr block"
-	type = list
-	default = ["0.0.0.0/0"]
-}
-
 variable "ebs" {
 	description = "True to create and attach EBS volume"
 	type = map
