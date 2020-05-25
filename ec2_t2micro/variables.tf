@@ -1,18 +1,7 @@
+# Mandatory variables
 variable "region" { 
   description =	"Region and AZ to use when creating the resources"
   type = map
-}
-
-variable "instance_type" {
-	description = "EC2 type"
-	type = string
-	default = "t2.micro"
-}
-
-variable "key_pair" {
-	description = "EC2 key pair name"
-	type = string
-	default = ""
 }
 
 variable "tags" {
@@ -25,10 +14,17 @@ variable "inbound_ports" {
 	type = list
 }
 
-variable "cidr_block_all" {
-	description = "All cidr block"
+# Optional variables
+variable "instance_type" {
+	description = "EC2 type"
 	type = string
-	default = "0.0.0.0/0"
+	default = "t2.micro"
+}
+
+variable "key_pair" {
+	description = "EC2 key pair name"
+	type = string
+	default = ""
 }
 
 variable "ebs" {
@@ -41,6 +37,14 @@ variable "ebs" {
 	}	
 }
 
+# Static variables
+variable "cidr_block_all" {
+	description = "All cidr block"
+	type = string
+	default = "0.0.0.0/0"
+}
+
+# Dinamyc AMI loading
 data "aws_ami" "amazon-linux-2" {
 	most_recent = true
 	owners 			= ["amazon"]
