@@ -1,10 +1,6 @@
 variable "region" { 
   description =	"Region and AZ to use when creating the resources"
-  type = map 
-  default = {
-		id  = "..."
-		az  = "..."
- 	}
+  type = map
 }
 
 variable "instance_type" {
