@@ -4,8 +4,8 @@ region = {
 }
 
 tags = {
-	"Name"  :"ec2_test"
-	"Admin" :"engineer", 
+  "Name"  :"ec2_test"
+  "Admin" :"engineer", 
   "Env"   :"development"
 }
 
