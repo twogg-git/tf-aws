@@ -21,7 +21,7 @@ variable "key_pair" {
 
 variable "tags" {
 	description = "List of tags to attach to resources"
-  type = map
+	type = map
 }
 
 variable "inbound_ports" {
@@ -49,11 +49,11 @@ data "aws_ami" "amazon-linux-2" {
 	most_recent = true
 	owners 			= ["amazon"]
 	filter {
-  	name   	= "owner-alias"
-  	values 	= ["amazon"]
+		name   	= "owner-alias"
+		values 	= ["amazon"]
 	}
 	filter {
-  	name   	= "name"
-  	values 	= ["amzn2-ami-hvm*"]
+		name   	= "name"
+		values 	= ["amzn2-ami-hvm*"]
 	}
 }
