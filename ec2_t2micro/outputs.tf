@@ -1,16 +1,11 @@
-output "instance_id" {
-  value = ["${aws_instance.ec2-ubu-t2m.*.id}"]
+output "ec2_id" {
+  value = aws_instance.ec2.*.id
 }
 
-output "instance_info" {
-  value = ["${aws_instance.ec2-ubu-t2m.*.tags}"]
+output "ec2_ip" {
+  value = aws_instance.ec2.*.public_ip
 }
 
-output "instance_ips" {
-  value = ["${aws_instance.ec2-ubu-t2m.*.public_ip}"]
+output "ec2_dns" {
+  value = aws_instance.ec2.*.public_dns
 }
-
-output "instance_security_gropups" {
-  value = ["${aws_instance.ec2-ubu-t2m.*.security_groups}"]
-}
-

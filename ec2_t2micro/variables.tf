@@ -1,21 +1,48 @@
-variable "aws_keys" { type = "map" }
-
-variable "aws_region_az" {}
-
-variable "aws_tls_port" { 
-    type = number
-    default = 443
+variable "account" { 
+	description =	"Region to use when creating the resources"
+	type = map
 }
 
-data "aws_ami" "ubuntu" {
-    most_recent = true
-    filter {
-        name   = "name"
-        values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
-    }
-    filter {
-        name   = "virtualization-type"
-        values = ["hvm"]
-    }
-    owners = ["099720109477"] # Canonical
+variable "instance" {
+	description = "EC2 instance info"
+	type = map
+}
+
+variable "tags" {
+	description = "List of tags to attach to resources"
+  type = map
+}
+
+variable "inbound_ports" {
+  description = "List of inbound ports to open"
+	type = list
+}
+
+variable "cidr_block" {
+	description = "VPC cidr block"
+	type = string
+}
+
+variable "ebs" {
+	description = "True to create and attach EBS volume"
+	type = map
+	default = {
+		status = false
+		size = 0
+		type = ""
+	}	
+}
+
+data "aws_ami" "amazon-linux-2" {
+ 	most_recent = true
+  owners = ["amazon"]
+  filter {
+    name   = "owner-alias"
+  	values = ["amazon"]
+  }
+
+	filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm*"]
+	}
 }
