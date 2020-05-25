@@ -1,0 +1,6 @@
+aws_keys = {
+    access = "your_aws_access_key"
+    secret = "your_aws_secret_key"
+    region = "aws_selected_region"
+    azone = "aws_selected_az"
+}
