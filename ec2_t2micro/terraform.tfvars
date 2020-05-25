@@ -20,6 +20,4 @@ ebs = {
 	type = "gp2"	
 }
 
-inbound_ports = [443, 22, 8080]
-
-cidr_block = "10.0.0.0/26"
+inbound_ports = [22, 80]

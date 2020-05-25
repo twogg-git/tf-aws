@@ -3,6 +3,6 @@
 yum -y install golang
 mkdir index
 cd index
-curl https://raw.githubusercontent.com/twogg-git/docker-registry-workshop/master/golang/main.go -o main.go 
+curl https://raw.githubusercontent.com/twogg-git/tf-aws/master/ec2_t2micro/data/main.go -o main.go 
 sudo go build
 ./index

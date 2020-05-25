@@ -18,11 +18,6 @@ variable "inbound_ports" {
 	type = list
 }
 
-variable "cidr_block" {
-	description = "VPC cidr block"
-	type = string
-}
-
 variable "ebs" {
 	description = "True to create and attach EBS volume"
 	type = map
